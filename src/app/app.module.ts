@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
   {path: 'directivas', component: DirectivasComponent},
   {path: 'clientes', component: ClientesComponent },
-  {path: 'clientes/form', component: FormComponent}
+  {path: 'clientes/form', component: FormComponent }
+  
 ]
 
 @NgModule({
@@ -27,7 +28,7 @@ const routes: Routes = [
     ClientesComponent,
     DirectivasComponent,
     FormComponent
-  ],
+  ],  
   imports: [
     BrowserModule,
     HttpClientModule,

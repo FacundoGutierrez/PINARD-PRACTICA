@@ -2,7 +2,9 @@ export class Cliente {
 
   nombre : string;
   apellido: string;
-  dni: number;
+  email: string;
+  id: number;
+  fecha: Date;
   
 
 }

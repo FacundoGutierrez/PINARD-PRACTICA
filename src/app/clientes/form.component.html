@@ -1,15 +1,13 @@
-<div class="card bh-dark text-white">
-    <div class="card-header"></div>
+<div class="card bh-dark text-dark">
+    <div class="card_header" >Proyecto Pinard</div>
     <div class="card-body">
 
-        <form (ngSubmit) = "create()" >
+        <form>
             <div class="form-group row">
-
-                <label for="" class="col-form-label col-sm-2" > {{ titulo }} chicharo </label>
-
-                <div class="col-sm-6">
-                    <input type="text" class="form control" [(ngModel)]="cliente.nombre" name="nombre">
-                </div>
+                 <label for="nombre" class="col-form-label col-sm-2" > Nombre </label>
+                    <div class="col-sm-6">
+                     <input type="text" class="form control" [(ngModel)]="cliente.nombre" name="nombre">
+                  </div>
             </div>
         </form>
     
@@ -17,10 +15,21 @@
         <form>
             <div class="form-group row">
 
-                <label for="" class="col-form-label col-sm-2" ></label>
+                <label for="apellido" class="col-form-label col-sm-2" > Apellido </label>
 
                 <div class="col-sm-6">
                     <input type="text" class="form control" [(ngModel)]="cliente.apellido" name="apellido">
+                </div>
+            </div>
+        </form>
+        
+        <form>
+            <div class="form-group row">
+
+                <label for="email" class="col-form-label col-sm-2" > Email </label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form control" [(ngModel)]="cliente.email" name="email">
                 </div>
             </div>
         </form>
@@ -28,16 +37,21 @@
         <form>
             <div class="form-group row">
 
-                <label for="" class="col-form-label col-sm-2" ></label>
+                <label for="id" class="col-form-label col-sm-2" > ID </label>
 
                 <div class="col-sm-6">
-                    <input type="text" class="form control" [(ngModel)]="cliente.dni" name="dni" >
+                    <input type="text" disabled="true"  class="form control"  [(ngModel)]="cliente.id" name="id"  >
                 </div>
             </div>
 
             <div class="form-group-row">
                 <div class="col-sm-6">
-                    <button class="btn btn-primary" role="button">Crear</button>
+                    <button class="btn btn-primary" role="button" (click)="create()"  *ngIf="!cliente.id else modificar">Crear</button>
+
+                    <ng-template #modificar>
+                        <button class="btn btn-danger" role="button" (click)="update()">Modificar</button>
+                    </ng-template>
+                    
                 </div>
             </div>
         </form>
